@@ -20,9 +20,8 @@ class Skia {
     private fun getCanvas(): Canvas = SkiaRenderer.getCanvas()
 
     fun drawURL(url: URI, font: Font, x: Float, y: Float, color: Color) {
-
-        var w = getTextWidth(url.toString(), font)
-        var h = getTextHeight(url.toString(), font)
+        val w = getTextWidth(url.toString(), font)
+        val h = getTextHeight(url.toString(), font)
 
         drawText(url.toString(), font, x, y, paint( if(InputUtils.isMouseOver(x, y, w, h)) Color(0, 86, 185) else color ))
 

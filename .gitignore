@@ -27,6 +27,12 @@ replay_pid*
 .gradle
 /build/
 
+# Minecraft
+run/
+
+# Intellij
+.idea/
+
 # Ignore Gradle GUI config
 gradle-app.setting
 

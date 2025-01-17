@@ -34,7 +34,7 @@ public final class SkiaRenderer {
         int fbo = MinecraftClient.getInstance().getFramebuffer().fbo;
 
         target = BackendRenderTarget.makeGL(width, height, 0, 8, fbo, GL11.GL_RGBA8);
-        surface = Surface.makeFromBackendRenderTarget(context, target, SurfaceOrigin.BOTTOM_LEFT, SurfaceColorFormat.BGRA_8888, ColorSpace.getSRGB());
+        surface = Surface.wrapBackendRenderTarget(context, target, SurfaceOrigin.BOTTOM_LEFT, SurfaceColorFormat.BGRA_8888, ColorSpace.getSRGB());
     }
 
     public static void onResize(int width, int height) {
