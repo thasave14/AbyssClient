@@ -4,6 +4,8 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Abyss.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Abyss.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Abyss.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Abyss.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AbyssClient.main.iml" filepath="$PROJECT_DIR$/.idea/modules/AbyssClient.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AbyssClient.test.iml" filepath="$PROJECT_DIR$/.idea/modules/AbyssClient.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dev.abyss.Abyss.main.iml" filepath="$PROJECT_DIR$/.idea/modules/dev.abyss.Abyss.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/dev.abyss.Abyss.test.iml" filepath="$PROJECT_DIR$/.idea/modules/dev.abyss.Abyss.test.iml" />
     </modules>

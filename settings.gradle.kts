@@ -14,4 +14,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "Abyss"
+rootProject.name = "AbyssClient"

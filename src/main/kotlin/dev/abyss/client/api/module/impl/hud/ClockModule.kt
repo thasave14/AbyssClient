@@ -11,7 +11,7 @@ class ClockModule : TextHudModule() {
 
     override fun getText(): String {
 
-        val dtf = DateTimeFormatter.ofPattern("HH:mm:ss")
+        val dtf = DateTimeFormatter.ofPattern("HH:mm")
         val now = LocalDateTime.now()
 
         return dtf.format(now)
