@@ -1,0 +1,77 @@
+---- Minecraft Crash Report ----
+// Hey, that tickles! Hehehe!
+
+Time: 03/01/2025, 22:32
+Description: Initializing game
+
+java.lang.RuntimeException: Could not execute entrypoint stage 'main' due to errors, provided by 'abyss'!
+	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$2(FabricLoaderImpl.java:388)
+	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:386)
+	at net.fabricmc.loader.impl.game.minecraft.Hooks.startClient(Hooks.java:52)
+	at net.minecraft.client.MinecraftClient.initializeGame(MinecraftClient.java:349)
+	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:310)
+	at net.minecraft.client.main.Main.main(Main.java:124)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:470)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+Caused by: java.lang.ExceptionInInitializerError
+	at java.base/java.lang.Class.forName0(Native Method)
+	at java.base/java.lang.Class.forName(Class.java:534)
+	at java.base/java.lang.Class.forName(Class.java:513)
+	at net.fabricmc.loader.impl.util.DefaultLanguageAdapter.create(DefaultLanguageAdapter.java:50)
+	at net.fabricmc.loader.impl.entrypoint.EntrypointStorage$NewEntry.getOrCreate(EntrypointStorage.java:117)
+	at net.fabricmc.loader.impl.entrypoint.EntrypointContainerImpl.getEntrypoint(EntrypointContainerImpl.java:53)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:384)
+	... 8 more
+Caused by: java.lang.NullPointerException: Cannot invoke "net.minecraft.client.resource.language.LanguageManager.forcesUnicodeFont()" because "this.languageManager" is null
+	at net.minecraft.client.MinecraftClient.forcesUnicodeFont(MinecraftClient.java:637)
+	at net.minecraft.client.util.Window.<init>(Window.java:18)
+	at dev.abyss.client.skia.Skia.<init>(Skia.kt:20)
+	at dev.abyss.client.Abyss.<init>(Abyss.kt:27)
+	at dev.abyss.client.Abyss.<clinit>(Abyss.kt:18)
+	... 15 more
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at net.fabricmc.loader.impl.FabricLoaderImpl.lambda$invokeEntrypoints$2(FabricLoaderImpl.java:388)
+	at net.fabricmc.loader.impl.util.ExceptionUtil.gatherExceptions(ExceptionUtil.java:33)
+	at net.fabricmc.loader.impl.FabricLoaderImpl.invokeEntrypoints(FabricLoaderImpl.java:386)
+	at net.fabricmc.loader.impl.game.minecraft.Hooks.startClient(Hooks.java:52)
+	at net.minecraft.client.MinecraftClient.initializeGame(MinecraftClient.java:349)
+
+-- Initialization --
+Details:
+Stacktrace:
+	at net.minecraft.client.MinecraftClient.run(MinecraftClient.java:310)
+	at net.minecraft.client.main.Main.main(Main.java:124)
+	at net.fabricmc.loader.impl.game.minecraft.MinecraftGameProvider.launch(MinecraftGameProvider.java:470)
+	at net.fabricmc.loader.impl.launch.knot.Knot.launch(Knot.java:74)
+	at net.fabricmc.loader.impl.launch.knot.KnotClient.main(KnotClient.java:23)
+	at net.fabricmc.devlaunchinjector.Main.main(Main.java:86)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.9
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 21.0.3, Amazon.com Inc.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode, sharing), Amazon.com Inc.
+	Memory: 83341168 bytes (79 MB) / 159383552 bytes (152 MB) up to 4261412864 bytes (4064 MB)
+	JVM Flags: 0 total; 
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: Fabric
+	LWJGL: 2.9.4
+	OpenGL: ~~ERROR~~ RuntimeException: No OpenGL context found in the current thread.
+	GL Caps: 
+	Using VBOs: ~~ERROR~~ NullPointerException: Cannot read field "vbo" because "this.field_10318.options" is null
+	Is Modded: Definitely; Client brand changed to 'fabric'
+	Type: Client (map_client.txt)
+	Resource Packs: ~~ERROR~~ NullPointerException: Cannot read field "resourcePacks" because "this.field_5044.options" is null
+	Current Language: ~~ERROR~~ NullPointerException: Cannot invoke "net.minecraft.client.resource.language.LanguageManager.getLanguage()" because the return value of "net.minecraft.client.MinecraftClient.method_5579(net.minecraft.client.MinecraftClient)" is null
+	Profiler Position: N/A (disabled)
+	CPU: <unknown>

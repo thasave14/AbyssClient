@@ -1,0 +1,19 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "dev.abyss.client.mixins",
+  "compatibilityLevel": "JAVA_11",
+  "mixins": [
+  ],
+  "client": [
+    "client.MixinMinecraftClient",
+    "client.gui.MixinInGameHud",
+    "client.gui.MixinTitleScreen",
+    "client.renderer.MixinCapeFeatureRenderer",
+    "client.renderer.MixinEntityRenderer",
+    "client.renderer.MixinHeldItemRenderer"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
