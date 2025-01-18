@@ -9,7 +9,6 @@ import dev.abyss.client.skia.Skia
 import dev.abyss.client.skia.font.Fonts
 import dev.abyss.client.utils.InputUtils
 import dev.abyss.client.utils.animate.ColorAnimation
-import dev.abyss.client.utils.animate.SimpleAnimation
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.util.Window
 import org.lwjgl.opengl.Display
@@ -77,7 +76,7 @@ class ModButtonComponent(val module: Module, x: Float, y: Float) : UIComponent(x
             val btnHeight = 20f * resolution.scaleFactor
 
             val colors = arrayOf(
-                if(module.toggled) Color(0, 111, 238) else Color(0, 111 - 25, 238 - 25), if(module.toggled) Color(0, 86, 185) else Color(0, 86 - 25, 185 - 25)
+                if(module.toggled) Color(0, 111, 238) else Color(185 + 25, 50 + 25, 25 + 25), if(module.toggled) Color(0, 86, 185) else Color(185, 50, 25)
             )
 
             skia.drawRoundedGradientRect(x + 10f, y + getHeight() - btnHeight - 20f, getWidth() - 20f, btnHeight, 15f, colors[0], colors[1])
@@ -86,17 +85,17 @@ class ModButtonComponent(val module: Module, x: Float, y: Float) : UIComponent(x
 
             val text = if(module.toggled) "Enabled" else "Disabled"
 
-            var btnX = x + 10f
-            var btnY = y + getHeight() - btnHeight - 20f
+            val btnX = x + 10f
+            val btnY = y + getHeight() - btnHeight - 20f
 
             skia.drawText(text, Fonts.interRegular(25f), btnX + (getWidth() - 20f) / 2f - skia.getTextWidth(text, Fonts.interRegular(25f)) / 2f, btnY + btnHeight / 2f - skia.getTextHeight(text, Fonts.interRegular(25f)) / 2f, skia.paint(Color.WHITE))
         }
 
         if(settings) {
 
-            var textHovered = InputUtils.isMouseOver(Abyss.getInstance().modMenuScreen.getX() + Abyss.getInstance().modMenuScreen.getSideBarWidth() + 40f, Abyss.getInstance().modMenuScreen.getY() + 35f, skia.getTextWidth("Modules", Fonts.interMedium(40f)), skia.getTextHeight("Modules", Fonts.interMedium(40f)))
+            val textHovered = InputUtils.isMouseOver(Abyss.getInstance().modMenuScreen.getX() + Abyss.getInstance().modMenuScreen.getSideBarWidth() + 40f, Abyss.getInstance().modMenuScreen.getY() + 35f, skia.getTextWidth("Modules", Fonts.interMedium(40f)), skia.getTextHeight("Modules", Fonts.interMedium(40f)))
 
-            var textColor = hoverAnim.animateAsState(textHovered, Color(0, 86, 185), Color.WHITE)
+            val textColor = hoverAnim.animateAsState(textHovered, Color(0, 86, 185), Color.WHITE)
 
             skia.drawText("Modules", Fonts.interMedium(40f), Abyss.getInstance().modMenuScreen.getX() + Abyss.getInstance().modMenuScreen.getSideBarWidth() + 40f, Abyss.getInstance().modMenuScreen.getY() + 35f, skia.paint(textColor))
 
@@ -136,7 +135,7 @@ class ModButtonComponent(val module: Module, x: Float, y: Float) : UIComponent(x
 
         if(settings) {
 
-            var textHovered = InputUtils.isMouseOver(Abyss.getInstance().modMenuScreen.getX() + Abyss.getInstance().modMenuScreen.getSideBarWidth() + 40f, Abyss.getInstance().modMenuScreen.getY() + 35f, Abyss.getInstance().skia.getTextWidth("Modules", Fonts.interMedium(40f)), Abyss.getInstance().skia.getTextHeight("Modules", Fonts.interMedium(40f)))
+            val textHovered = InputUtils.isMouseOver(Abyss.getInstance().modMenuScreen.getX() + Abyss.getInstance().modMenuScreen.getSideBarWidth() + 40f, Abyss.getInstance().modMenuScreen.getY() + 35f, Abyss.getInstance().skia.getTextWidth("Modules", Fonts.interMedium(40f)), Abyss.getInstance().skia.getTextHeight("Modules", Fonts.interMedium(40f)))
 
             if(textHovered) {
                 if(button == 0) {

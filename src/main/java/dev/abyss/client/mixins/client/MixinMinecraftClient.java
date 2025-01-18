@@ -1,14 +1,16 @@
 package dev.abyss.client.mixins.client;
 
 import dev.abyss.client.Abyss;
-import dev.abyss.client.api.screen.HudEditorScreen;
 import dev.abyss.client.event.impl.KeyEvent;
 import dev.abyss.client.event.impl.TickEvent;
 import dev.abyss.client.skija.SkiaRenderer;
 import net.minecraft.client.MinecraftClient;
-import org.lwjgl.Sys;
+import net.minecraft.client.util.NullTwitchStream;
+import net.minecraft.client.util.TwitchStreamProvider;
 import org.lwjgl.input.Keyboard;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.ModifyArg;
@@ -16,6 +18,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(MinecraftClient.class)
 public class MixinMinecraftClient {
+
+    @Shadow private TwitchStreamProvider twitchStreamProvider;
 
     @Inject(method = "initializeGame", at = @At("TAIL"))
     private void initializeGame(CallbackInfo ci) {
@@ -44,5 +48,14 @@ public class MixinMinecraftClient {
         if(Keyboard.getEventKeyState()) {
             new KeyEvent(Keyboard.getEventKey()).call();
         }
+    }
+
+    /**
+     * @author thasave14
+     * @reason Twitch stream doesn't even work nowadays, so it just slows down game launch and game performance
+     */
+    @Overwrite
+    public void initializeStream() {
+        this.twitchStreamProvider = new NullTwitchStream(new Throwable("Who the fuck uses twitch stream"));
     }
 }

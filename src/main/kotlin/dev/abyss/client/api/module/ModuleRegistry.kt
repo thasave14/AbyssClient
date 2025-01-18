@@ -3,10 +3,7 @@ package dev.abyss.client.api.module
 import dev.abyss.client.Abyss
 import dev.abyss.client.api.module.hud.HudModule
 import dev.abyss.client.api.module.impl.OldAnimationsModule
-import dev.abyss.client.api.module.impl.hud.ClockModule
-import dev.abyss.client.api.module.impl.hud.CpsModule
-import dev.abyss.client.api.module.impl.hud.FpsModule
-import dev.abyss.client.api.module.impl.hud.PingModule
+import dev.abyss.client.api.module.impl.hud.*
 import dev.abyss.client.api.module.impl.hud.keystrokes.KeystrokesModule
 import dev.abyss.client.api.screen.HudEditorScreen
 import dev.abyss.client.event.EventManager
@@ -19,7 +16,6 @@ class ModuleRegistry {
     val modules = mutableListOf<Module>()
 
     init {
-
         EventManager.register(this)
 
         modules.add(FpsModule())
@@ -28,6 +24,7 @@ class ModuleRegistry {
         modules.add(ClockModule())
         modules.add(KeystrokesModule())
         modules.add(OldAnimationsModule())
+        modules.add(KDModule())
     }
 
     fun getEnabledHudModules(): MutableList<HudModule> {
