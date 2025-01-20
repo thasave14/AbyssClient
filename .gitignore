@@ -43,3 +43,5 @@ gradle-app.setting
 .gradletasknamecache
 
 # End of Gradle and Java .gitignore
+/.idea/
+/run/

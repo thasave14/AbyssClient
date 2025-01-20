@@ -88,12 +88,12 @@ abstract class TextHudModule : HudModule() {
 
     override fun render(skia: Skia, x: Float, y: Float) {
 
-        skia.render(run = {
+        skia.render {
 
             if(getSetting("Background").toggled) {
                 skia.drawRoundedRect(x, y, getWidth(), getHeight(), getSetting("Corner Radius").currentSlider, skia.paint(getSetting("Background Color").color))
             }
-        })
+        }
 
         mc.textRenderer.draw(getText(), getDescaledX() + getDescaledW() / 2f - mc.textRenderer.getStringWidth(getText()) / 2f, getDescaledY() + getDescaledH() / 2f - mc.textRenderer.fontHeight / 2f, Color(getSetting("Red").currentSlider / 255.0f, getSetting("Green").currentSlider / 255.0f, getSetting("Blue").currentSlider / 255.0f).rgb, getSetting("Text Shadow").toggled)
     }
