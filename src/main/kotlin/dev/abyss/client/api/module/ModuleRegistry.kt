@@ -5,6 +5,7 @@ import dev.abyss.client.api.module.hud.HudModule
 import dev.abyss.client.api.module.impl.OldAnimationsModule
 import dev.abyss.client.api.module.impl.hud.*
 import dev.abyss.client.api.module.impl.hud.keystrokes.KeystrokesModule
+import dev.abyss.client.api.module.impl.hud.togglesprint.ToggleSprintModule
 import dev.abyss.client.api.screen.HudEditorScreen
 import dev.abyss.client.event.EventManager
 import dev.abyss.client.event.Subscribe
@@ -25,6 +26,7 @@ class ModuleRegistry {
         modules.add(KeystrokesModule())
         modules.add(OldAnimationsModule())
         modules.add(KDModule())
+        modules.add(ToggleSprintModule())
     }
 
     fun getEnabledHudModules(): MutableList<HudModule> {

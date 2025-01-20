@@ -11,7 +11,8 @@
     "client.network.MixinClientPlayNetworkHandler",
     "client.renderer.MixinCapeFeatureRenderer",
     "client.renderer.MixinEntityRenderer",
-    "client.renderer.MixinHeldItemRenderer"
+    "client.renderer.MixinHeldItemRenderer",
+    "util.MixinKeyboardInput"
   ],
   "injectors": {
     "defaultRequire": 1
