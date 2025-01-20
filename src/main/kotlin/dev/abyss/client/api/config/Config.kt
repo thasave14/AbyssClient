@@ -15,7 +15,7 @@ import java.util.*
 import java.util.logging.Level
 import java.util.logging.Logger
 
-//chatgpt config
+//chatgpt config :sob:
 object Config {
 
     private val LOGGER: Logger = Logger.getLogger(Config::class.java.name)
