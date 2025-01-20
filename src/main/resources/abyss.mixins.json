@@ -8,7 +8,6 @@
   "client": [
     "client.MixinMinecraftClient",
     "client.gui.MixinInGameHud",
-    "client.gui.MixinTitleScreen",
     "client.network.MixinClientPlayNetworkHandler",
     "client.renderer.MixinCapeFeatureRenderer",
     "client.renderer.MixinEntityRenderer",

@@ -22,6 +22,9 @@ class ModButtonComponent(val module: Module, x: Float, y: Float) : UIComponent(x
 
     val settingComps = mutableListOf<SettingComponent>()
 
+    val toggleAnim1 = ColorAnimation()
+    val toggleAnim2 = ColorAnimation()
+
     init {
 
         initSettings()
@@ -75,8 +78,12 @@ class ModButtonComponent(val module: Module, x: Float, y: Float) : UIComponent(x
 
             val btnHeight = 20f * resolution.scaleFactor
 
+            //if(module.toggled) Color(0, 111, 238) else Color(185 + 25, 50 + 25, 25 + 25)
+
+            //if(module.toggled) Color(0, 86, 185) else Color(185, 50, 25
+
             val colors = arrayOf(
-                if(module.toggled) Color(0, 111, 238) else Color(185 + 25, 50 + 25, 25 + 25), if(module.toggled) Color(0, 86, 185) else Color(185, 50, 25)
+               toggleAnim1.animateAsState(module.toggled, Color(0, 111, 238), Color(185 + 25, 50 + 25, 25 * 2)), toggleAnim2.animateAsState(module.toggled, Color(0, 86, 185), Color(185, 50, 25))
             )
 
             skia.drawRoundedGradientRect(x + 10f, y + getHeight() - btnHeight - 20f, getWidth() - 20f, btnHeight, 15f, colors[0], colors[1])

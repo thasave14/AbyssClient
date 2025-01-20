@@ -2,12 +2,13 @@ package dev.abyss.client.api.screen
 
 import dev.abyss.client.Abyss
 import dev.abyss.client.api.module.hud.HudModule
-import dev.abyss.client.api.module.hud.ScreenSection
 import dev.abyss.client.api.screen.ui.component.impl.GeneralButton
+import dev.abyss.client.utils.accessor.IMixinGameRenderer
 import dev.abyss.client.utils.MathUtils
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.Window
+import net.minecraft.util.Identifier
 import org.lwjgl.input.Mouse
 import org.lwjgl.opengl.Display
 import java.awt.Color
@@ -75,12 +76,17 @@ class HudEditorScreen : Screen() {
         }
 
         for(mod in mods) {
+
+            skia.drawRect(mod.getAbsoluteX(), mod.getAbsoluteY(), mod.getWidth(), mod.getHeight(), skia.paint(Color(25, 25, 25, 60)))
+
             mod.renderDummy(skia, mod.getAbsoluteX(), mod.getAbsoluteY())
+
+            skia.drawRoundedOutline(mod.getAbsoluteX(), mod.getAbsoluteY(), mod.getWidth(), mod.getHeight(), 2f, 0.6f, skia.paint(Color(25, 25, 25)))
 
             if(mod.isHovered()) {
 
                 skia.render {
-                    skia.drawRectOutline(mod.getAbsoluteX(), mod.getAbsoluteY(), mod.getWidth(), mod.getHeight(), 1.5f, skia.paint(Color.WHITE))
+                    skia.drawRoundedOutline(mod.getAbsoluteX(), mod.getAbsoluteY(), mod.getWidth(), mod.getHeight(), 2f, 1.5f, skia.paint(Color.WHITE))
                 }
             }
         }

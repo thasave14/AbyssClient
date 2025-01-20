@@ -5,7 +5,6 @@ import dev.abyss.client.api.module.ModuleRegistry;
 import dev.abyss.client.api.module.settings.SettingsManager;
 import dev.abyss.client.api.screen.HudEditorScreen;
 import dev.abyss.client.api.screen.modmenu.ModMenuScreen;
-import dev.abyss.client.socket.SocketClient;
 import dev.abyss.client.event.EventManager;
 import dev.abyss.client.event.Subscribe;
 import dev.abyss.client.event.impl.KeyEvent;
@@ -15,6 +14,10 @@ import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
 import org.lwjgl.opengl.Display;
 
+/**
+ * @author iLofiz
+ * (i didn't bother to use lombok cuz this client is mainly built with kotlin)
+ */
 public class Abyss implements ModInitializer {
 
     private static Abyss instance;

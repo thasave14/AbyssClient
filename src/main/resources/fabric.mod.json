@@ -5,14 +5,15 @@
   "name": "Abyss Client",
   "description": "The #1 Pvp Client",
   "authors": [
-    "iLofiz"
+    "iLofiz",
+    "thasave14"
   ],
   "contact": {
     "homepage": "https://legacyfabric.net/",
     "sources": "https://github.com/Legacy-Fabric/fabric-example-mod"
   },
   "license": "CC0-1.0",
-  "icon": "assets/modid/icon.png",
+  "icon": "assets/minecraft/abyss/logo.png",
   "environment": "*",
   "entrypoints": {
     "main": [

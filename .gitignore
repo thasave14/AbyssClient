@@ -28,7 +28,7 @@ replay_pid*
 /build/
 
 # Minecraft
-run/
+client/run/
 
 # Intellij
 .idea/

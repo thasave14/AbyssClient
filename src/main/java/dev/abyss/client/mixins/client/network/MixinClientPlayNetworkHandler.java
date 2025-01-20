@@ -11,14 +11,16 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ClientPlayNetworkHandler.class)
 public class MixinClientPlayNetworkHandler {
-  @Inject(method = "onCombatEvent", at = @At("HEAD"))
-  public void onCombat(CombatEventS2CPacket packet, CallbackInfo ci) {
-    if(packet.type == CombatEventS2CPacket.Type.ENTITY_DIED) {
-      if(packet.attackerEntityId == MinecraftClient.getInstance().player.getEntityId()) {
-        KDTracker.addKill();
-      } else if(packet.entityId == MinecraftClient.getInstance().player.getEntityId()) {
-        KDTracker.addDeath();
-      }
+
+    @Inject(method = "onCombatEvent", at = @At("HEAD"))
+    private void onCombatEvent(CombatEventS2CPacket packet, CallbackInfo ci) {
+
+        if(packet.type == CombatEventS2CPacket.Type.ENTITY_DIED) {
+            if(packet.attackerEntityId == MinecraftClient.getInstance().player.getEntityId()) {
+                KDTracker.addKill();
+            } else if(packet.entityId == MinecraftClient.getInstance().player.getEntityId()) {
+                KDTracker.addDeath();
+            }
+        }
     }
-  }
 }

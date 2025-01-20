@@ -2,6 +2,7 @@ package dev.abyss.client.socket;
 
 import co.gongzh.procbridge.Client;
 
+//quickdaffy shit idfk :sob:
 public class SocketClient {
 
     public static final Client client = new Client("localhost", 3115);

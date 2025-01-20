@@ -1,6 +1,7 @@
 package dev.abyss.client.utils;
 
 public class KDTracker {
+
     private static int kills = 0;
     private static int deaths = 0;
 

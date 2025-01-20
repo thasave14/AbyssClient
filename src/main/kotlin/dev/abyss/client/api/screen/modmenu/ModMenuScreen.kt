@@ -9,6 +9,7 @@ import dev.abyss.client.api.screen.modmenu.comp.PageButtonComponent
 import dev.abyss.client.api.screen.modmenu.comp.settings.*
 import dev.abyss.client.api.screen.ui.component.UIComponent
 import dev.abyss.client.skia.font.Fonts
+import dev.abyss.client.utils.InputUtils
 import dev.abyss.client.utils.animate.SimpleAnimation
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
@@ -167,62 +168,67 @@ class ModMenuScreen : Screen() {
 
             skia.drawRoundedRect(getX(), getY(), getMenuWidth(), getMenuHeight(), 35f, skia.paint(Color(5, 5, 5)))
 
-            skia.drawRoundedRect(getX() + 10f, getY() + 10f, getSideBarWidth(), getMenuHeight() - 20f, 30f, skia.paint(Color(14, 14, 14)))
+            skia.scissor(getX(), getY(), getMenuWidth(), getMenuHeight()) {
 
-            skia.drawRoundedRect(getX() + getSideBarWidth() + 18f, getY() + 10f, getMenuWidth() - getSideBarWidth() - 30f, getMenuHeight() - 20f, 30f, skia.paint(Color(14, 14, 14)))
+                skia.drawRoundedRect(getX() + 10f, getY() + 10f, getSideBarWidth(), getMenuHeight() - 20f, 30f, skia.paint(Color(14, 14, 14)))
 
-            animatePage.setAnimation(pages.indexOf(getByPage(currentPage)) * (30f * Window(MinecraftClient.getInstance()).scaleFactor), 18.0);
+                skia.drawRoundedRect(getX() + getSideBarWidth() + 18f, getY() + 10f, getMenuWidth() - getSideBarWidth() - 30f, getMenuHeight() - 20f, 30f, skia.paint(Color(14, 14, 14)))
 
-            skia.drawRoundedGradientRect((getX() + 10f) + getSideBarWidth() / 2f - (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f) / 2f, getY() + 50f + animatePage.value, (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), 25f, Color(0, 111, 238), Color(0, 86, 185))
-            skia.drawRoundedOutline((getX() + 10f) + getSideBarWidth() / 2f - (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f) / 2f, getY() + 50f + animatePage.value, (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), 25f, 1.5f, skia.paint(Color(0, 86, 185)))
+                animatePage.setAnimation(pages.indexOf(getByPage(currentPage)) * (30f * Window(MinecraftClient.getInstance()).scaleFactor), 18.0);
 
-            pages.forEach {
-                it.render(skia, it.x, it.y)
-            }
+                skia.drawRoundedGradientRect((getX() + 10f) + getSideBarWidth() / 2f - (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f) / 2f, getY() + 50f + animatePage.value, (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), 25f, Color(0, 111, 238), Color(0, 86, 185))
+                skia.drawRoundedOutline((getX() + 10f) + getSideBarWidth() / 2f - (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f) / 2f, getY() + 50f + animatePage.value, (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), (30f * Window(MinecraftClient.getInstance()).scaleFactor - 10f), 25f, 1.5f, skia.paint(Color(0, 86, 185)))
 
-            modMenuButtons.forEach {
-                it.render(skia, it.x, it.y)
-            }
-
-            when(currentPage) {
-
-                Page.MODULES -> {
-
-                    if(currentPage == Page.MODULES) {
-                        pageTitleAnimation.setAnimation(getX() + getSideBarWidth() + 40f, 12.0)
-                    } else {
-                        pageTitleAnimation.setAnimation(getX(), 12.0)
-                    }
-
-                    if(!modSettings) {
-                        skia.drawText("Modules", Fonts.interMedium(40f), pageTitleAnimation.value, getY() + 35f, skia.paint(Color.WHITE))
-
-                        skia.drawRect(getX() + getSideBarWidth() + 40f, (getY() + 35) + skia.getTextHeight("Modules", Fonts.interMedium(40f)) + 8f, (getMenuWidth() - getSideBarWidth()) - 60f, 1f, skia.paint(Color(25, 25, 25)))
-                    }
-
-                    mods.forEach {
-                        it.render(skia, it.x, it.y)
-                    }
+                pages.forEach {
+                    it.render(skia, it.x, it.y)
                 }
 
-                Page.SETTINGS -> {
-                    skia.drawText("Settings", Fonts.interMedium(40f), getX() + getSideBarWidth() + 40f, getY() + 35f, skia.paint(Color.WHITE))
-
-                    settings.forEach {
-                        it.render(skia, it.x, it.y)
-                    }
+                modMenuButtons.forEach {
+                    it.render(skia, it.x, it.y)
                 }
 
-                Page.THEMES -> {
-                    skia.drawText("Themes", Fonts.interMedium(40f), getX() + getSideBarWidth() + 40f, getY() + 35f, skia.paint(Color.WHITE))
+                when(currentPage) {
 
-                    skia.drawText("Coming Soon...", Fonts.interMedium(50f), getX() + getMenuWidth() / 2f - skia.getTextWidth("Coming Soon...", Fonts.interMedium(50f)) / 2f, getY() + getMenuHeight() / 2f - skia.getTextHeight("Coming Soon...", Fonts.interMedium(50f)) / 2f, skia.paint(Color.WHITE))
+                    Page.MODULES -> {
+
+                        if(currentPage == Page.MODULES) {
+                            pageTitleAnimation.setAnimation(getX() + getSideBarWidth() + 40f, 12.0)
+                        } else {
+                            pageTitleAnimation.setAnimation(getX(), 12.0)
+                        }
+
+                        if(!modSettings) {
+                            skia.drawText("Modules", Fonts.interMedium(40f), pageTitleAnimation.value, getY() + 35f, skia.paint(Color.WHITE))
+
+                            skia.drawRect(getX() + getSideBarWidth() + 40f, (getY() + 35) + skia.getTextHeight("Modules", Fonts.interMedium(40f)) + 8f, (getMenuWidth() - getSideBarWidth()) - 60f, 1f, skia.paint(Color(25, 25, 25)))
+                        }
+
+                        mods.forEach {
+                            it.render(skia, it.x, it.y)
+                        }
+                    }
+
+                    Page.SETTINGS -> {
+                        skia.drawText("Settings", Fonts.interMedium(40f), getX() + getSideBarWidth() + 40f, getY() + 35f, skia.paint(Color.WHITE))
+
+                        settings.forEach {
+                            it.render(skia, it.x, it.y)
+                        }
+                    }
+
+                    Page.THEMES -> {
+                        skia.drawText("Themes", Fonts.interMedium(40f), getX() + getSideBarWidth() + 40f, getY() + 35f, skia.paint(Color.WHITE))
+
+                        skia.drawText("Coming Soon...", Fonts.interMedium(50f), getX() + getMenuWidth() / 2f - skia.getTextWidth("Coming Soon...", Fonts.interMedium(50f)) / 2f, getY() + getMenuHeight() / 2f - skia.getTextHeight("Coming Soon...", Fonts.interMedium(50f)) / 2f, skia.paint(Color.WHITE))
+                    }
                 }
             }
         }
     }
 
     override fun mouseClicked(mouseX: Int, mouseY: Int, button: Int) {
+
+        if(!InputUtils.isMouseOver(getX(), getY(), getMenuWidth(), getMenuHeight())) return
 
         pages.forEach {
             it.onClick(button)
@@ -255,6 +261,8 @@ class ModMenuScreen : Screen() {
     }
 
     override fun mouseReleased(mouseX: Int, mouseY: Int, button: Int) {
+
+        if(!InputUtils.isMouseOver(getX(), getY(), getMenuWidth(), getMenuHeight())) return
 
         when(currentPage) {
 

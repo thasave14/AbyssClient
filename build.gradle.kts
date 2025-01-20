@@ -1,13 +1,8 @@
-import org.gradle.internal.os.OperatingSystem
-import net.fabricmc.loom.task.RemapJarTask
-
-import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
     kotlin("jvm") version "2.0.0"
     java
     id("maven-publish")
-
     alias(libs.plugins.loom)
     alias(libs.plugins.loom.legacy)
     id("com.github.johnrengelman.shadow") version "8.1.1"
@@ -24,28 +19,6 @@ repositories {
     mavenCentral()
     maven("https://jitpack.io")
     jcenter()
-}
-
-loom {
-
-}
-
-legacyLooming {
-
-}
-
-val lwjglVersion = "3.3.1"
-
-var lwjglNatives = ""
-
-lwjglNatives = when(OperatingSystem.current()) {
-    OperatingSystem.WINDOWS -> "natives-windows"
-    OperatingSystem.LINUX -> "natives-linux"
-    else -> throw IllegalArgumentException("Could Not Find Natives For Operating System: ${OperatingSystem.current().name}")
-}
-
-val shadowImpl: Configuration = configurations.create("shadowImpl") {
-    isCanBeResolved = true
 }
 
 tasks.shadowJar {
@@ -74,12 +47,6 @@ dependencies {
 
     implementation ("com.google.code.gson:gson:2.8.9")
 }
-
-tasks.register("remapShadowJar", RemapJarTask::class.java) {
-    dependsOn(ShadowJar::class)
-}
-
-tasks.build.get().dependsOn("remapShadowJar")
 
 tasks.processResources {
     inputs.property("version", version)
