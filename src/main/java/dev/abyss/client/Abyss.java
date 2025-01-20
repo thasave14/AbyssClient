@@ -1,5 +1,6 @@
 package dev.abyss.client;
 
+import dev.abyss.client.api.config.Config;
 import dev.abyss.client.api.cosmetic.CosmeticManager;
 import dev.abyss.client.api.module.ModuleRegistry;
 import dev.abyss.client.api.module.settings.SettingsManager;
@@ -46,13 +47,15 @@ public class Abyss implements ModInitializer {
         this.moduleRegistry = new ModuleRegistry();
         this.settingsManager = new SettingsManager();
 
+        Config.load();
+
         CosmeticManager.init();
 
         this.modMenuScreen = new ModMenuScreen();
     }
 
     public void onShutdown() {
-
+        Config.save();
     }
 
     public Skia getSkia() {
