@@ -14,7 +14,7 @@ difficulty:2
 fancyGraphics:false
 ao:0
 renderClouds:false
-resourcePacks:[]
+resourcePacks:["§4Hurtin §fFPS.zip"]
 incompatibleResourcePacks:[]
 lastServer:
 lang:en_US

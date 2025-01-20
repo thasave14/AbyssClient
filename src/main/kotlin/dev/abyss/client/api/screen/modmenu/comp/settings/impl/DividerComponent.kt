@@ -1,7 +1,8 @@
-package dev.abyss.client.api.screen.modmenu.comp.settings
+package dev.abyss.client.api.screen.modmenu.comp.settings.impl
 
 import dev.abyss.client.Abyss
 import dev.abyss.client.api.module.settings.Setting
+import dev.abyss.client.api.screen.modmenu.comp.settings.SettingComponent
 import dev.abyss.client.skia.Skia
 import dev.abyss.client.skia.font.Fonts
 import java.awt.Color

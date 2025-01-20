@@ -77,7 +77,6 @@ public abstract class Animation {
         }
     }
 
-    
     public float getValueFloat() {
     	return (float) getValue();
     }

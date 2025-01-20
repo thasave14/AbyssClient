@@ -12,7 +12,7 @@ class Key {
 
     val fadeAnim = ColorAnimation()
 
-    fun render(x: Float, y: Float, w: Float, h: Float, radius: Float, background: Boolean, textShadow: Boolean, backgroundColor: Color, backgroundColorPressed: Color, textColor: Color, textColorPressed: Color, key: KeyBinding) {
+    fun render(x: Float, y: Float, w: Float, h: Float, radius: Float, background: Boolean, textShadow: Boolean, backgroundColor: Color, backgroundColorPressed: Color, textColor: Color, textColorPressed: Color, key: KeyBinding, fadeAmount: Double) {
 
         val skia = Abyss.getInstance().skia
 
@@ -23,7 +23,7 @@ class Key {
         skia.render {
 
             if(background) {
-                skia.drawRoundedRect(x, y, w, h, radius, skia.paint( if(pressed) backgroundColorPressed else backgroundColor ))
+                skia.drawRoundedRect(x, y, w, h, radius, skia.paint( fadeAnim.animateAsState(pressed, Color(255, 255, 255, 90), Color(0, 0, 0, 90), fadeAmount) ))
             }
         }
 
@@ -37,6 +37,6 @@ class Key {
         var descaledW = w / resolution.scaleFactor
         var descaledH = h / resolution.scaleFactor
 
-        mc.textRenderer.draw(text, descaledX + descaledW / 2f - mc.textRenderer.getStringWidth(text) / 2f, descaledY + descaledH / 2f - mc.textRenderer.fontHeight / 2f, if(pressed) textColorPressed.rgb else textColor.rgb, textShadow)
+        mc.textRenderer.draw(text, descaledX + descaledW / 2f - mc.textRenderer.getStringWidth(text) / 2f, descaledY + descaledH / 2f - mc.textRenderer.fontHeight / 2f, if(pressed) Color.BLACK.rgb else Color.WHITE.rgb, textShadow)
     }
 }

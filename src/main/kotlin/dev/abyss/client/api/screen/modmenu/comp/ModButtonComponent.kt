@@ -4,6 +4,7 @@ import dev.abyss.client.Abyss
 import dev.abyss.client.api.module.Module
 import dev.abyss.client.api.module.settings.SettingType
 import dev.abyss.client.api.screen.modmenu.comp.settings.*
+import dev.abyss.client.api.screen.modmenu.comp.settings.impl.*
 import dev.abyss.client.api.screen.ui.component.UIComponent
 import dev.abyss.client.skia.Skia
 import dev.abyss.client.skia.font.Fonts
@@ -86,14 +87,14 @@ class ModButtonComponent(val module: Module, x: Float, y: Float) : UIComponent(x
                toggleAnim1.animateAsState(module.toggled, Color(0, 111, 238), Color(185 + 25, 50 + 25, 25 * 2)), toggleAnim2.animateAsState(module.toggled, Color(0, 86, 185), Color(185, 50, 25))
             )
 
-            skia.drawRoundedGradientRect(x + 10f, y + getHeight() - btnHeight - 20f, getWidth() - 20f, btnHeight, 15f, colors[0], colors[1])
+            skia.drawRoundedGradientRect(x + 10f, y + getHeight() - btnHeight - 10f, getWidth() - 20f, btnHeight, 15f, colors[0], colors[1])
 
             skia.drawText(module.getMetaData().name, Fonts.interRegular(30f), x + getWidth() / 2f - skia.getTextWidth(module.getMetaData().name, Fonts.interMedium(30f)) / 2f, y + getHeight() / 2f - skia.getTextHeight(module.getMetaData().name, Fonts.interRegular(30f)) / 2f + 20f, skia.paint(Color.WHITE))
 
             val text = if(module.toggled) "Enabled" else "Disabled"
 
             val btnX = x + 10f
-            val btnY = y + getHeight() - btnHeight - 20f
+            val btnY = y + getHeight() - btnHeight - 10f
 
             skia.drawText(text, Fonts.interRegular(25f), btnX + (getWidth() - 20f) / 2f - skia.getTextWidth(text, Fonts.interRegular(25f)) / 2f, btnY + btnHeight / 2f - skia.getTextHeight(text, Fonts.interRegular(25f)) / 2f, skia.paint(Color.WHITE))
         }

@@ -31,9 +31,9 @@ class KeystrokesModule : HudModule() {
         Slider(
             name = "Fade Amount",
             module = this,
-            minSlider = 0f,
+            minSlider = 6f,
             currentSlider = 6f,
-            maxSlider = 12f,
+            maxSlider = 15f,
             category = "General"
         )
 
@@ -183,18 +183,18 @@ class KeystrokesModule : HudModule() {
 
         val wasdBtnSize = 20f * Window(mc).scaleFactor
 
-        var bgColor = Color(getSetting("Background Red").color.red, getSetting("Background Green").color.green, getSetting("Background Blue").color.blue, 90)
-        var bgColorPressed = Color(getSetting("Background (Pressed) Red").color.red, getSetting("Background (Pressed) Green").color.green, getSetting("Background (Pressed) Blue").color.blue, 90)
+        var bgColor = Color(getSetting("Background Red").color.red / 255.0f, getSetting("Background Green").color.green / 255.0f, getSetting("Background Blue").color.blue / 255.0f, 90f / 255.0f)
+        var bgColorPressed = Color(getSetting("Background (Pressed) Red").color.red / 255.0f, getSetting("Background (Pressed) Green").color.green / 255.0f, getSetting("Background (Pressed) Blue").color.blue / 255.0f, 90f / 255.0f)
 
-        var textColor = Color(getSetting("Text Red").color.red, getSetting("Text Green").color.green, getSetting("Text Blue").color.blue)
-        var textColorPressed = Color(getSetting("Text (Pressed) Red").color.red, getSetting("Text (Pressed) Green").color.green, getSetting("Text (Pressed) Blue").color.blue)
+        var textColor = Color(getSetting("Text Red").color.red / 255.0f, getSetting("Text Green").color.green / 255.0f, getSetting("Text Blue").color.blue / 255.0f)
+        var textColorPressed = Color(getSetting("Text (Pressed) Red").color.red / 255.0f, getSetting("Text (Pressed) Green").color.green / 255.0f, getSetting("Text (Pressed) Blue").color.blue / 255.0f)
 
-        W.render(x + getWidth() / 2f - wasdBtnSize / 2f, y, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.forwardKey)
-        A.render(x, y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.leftKey)
-        S.render(x + getWidth() / 2f - wasdBtnSize / 2f, y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.backKey)
-        D.render((x + getWidth() / 2f - wasdBtnSize / 2f) + (wasdBtnSize + 7), y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.rightKey)
+        W.render(x + getWidth() / 2f - wasdBtnSize / 2f, y, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.forwardKey, getSetting("Fade Amount").currentSlider.toDouble())
+        A.render(x, y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.leftKey, getSetting("Fade Amount").currentSlider.toDouble())
+        S.render(x + getWidth() / 2f - wasdBtnSize / 2f, y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.backKey, getSetting("Fade Amount").currentSlider.toDouble())
+        D.render((x + getWidth() / 2f - wasdBtnSize / 2f) + (wasdBtnSize + 7), y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.rightKey, getSetting("Fade Amount").currentSlider.toDouble())
 
-        SPACE.render(x, y + ((wasdBtnSize * 2) + 14), getWidth() - 1, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.jumpKey)
+        SPACE.render(x, y + ((wasdBtnSize * 2) + 14), getWidth() - 1, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.jumpKey, getSetting("Fade Amount").currentSlider.toDouble())
     }
 
     override fun getWidth(): Float {

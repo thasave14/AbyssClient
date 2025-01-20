@@ -7,6 +7,7 @@ import dev.abyss.client.api.screen.modmenu.comp.ModButtonComponent
 import dev.abyss.client.api.screen.modmenu.comp.ModMenuButton
 import dev.abyss.client.api.screen.modmenu.comp.PageButtonComponent
 import dev.abyss.client.api.screen.modmenu.comp.settings.*
+import dev.abyss.client.api.screen.modmenu.comp.settings.impl.*
 import dev.abyss.client.api.screen.ui.component.UIComponent
 import dev.abyss.client.skia.font.Fonts
 import dev.abyss.client.utils.InputUtils
@@ -16,8 +17,6 @@ import net.minecraft.client.gui.screen.Screen
 import net.minecraft.client.util.Window
 import org.lwjgl.opengl.Display
 import java.awt.Color
-import java.net.URI
-import java.net.URL
 
 class ModMenuScreen : Screen() {
 
