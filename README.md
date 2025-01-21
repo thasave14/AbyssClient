@@ -3,7 +3,7 @@ Minecraft PvP Client (1.7.10, 1.8.9)
 
 # Credits
 
-GlideClient (Animation Utils, Slider Component Code And Font)
+GlideClient (Animation Utils, Slider Component Code And Font, ChangePackEvent method call)
 https://glideclient.github.io/
 
 Cloud Client (Color Picker Component And Image Drawing Method)
