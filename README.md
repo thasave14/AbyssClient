@@ -14,3 +14,6 @@ Hud Positioning Thing
 
 Quantamyt (Skija Rendering)
 https://github.com/Quantamyt
+
+PolyFrost (EvergreenHUD) (Resource Pack Display)
+https://github.com/Polyfrost/EvergreenHUD
