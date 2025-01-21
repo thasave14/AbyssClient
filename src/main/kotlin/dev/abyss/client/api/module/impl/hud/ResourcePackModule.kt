@@ -17,6 +17,10 @@ import java.awt.Color
 
 class ResourcePackModule : HudModule() {
 
+    /**
+     * @author PolyFrost
+     * Source: EvergreenHUD
+     */
     var pack: ResourcePackLoader.Entry? = getResourcePack()
 
     /**
@@ -70,6 +74,10 @@ class ResourcePackModule : HudModule() {
             }
         }
 
+        /**
+         * @author PolyFrost
+         * Source: EvergreenHUD
+         */
         pack?.bindIcon(mc.textureManager) ?: mc.textureManager.bindTexture(defaultIcon)
         DrawableHelper.drawTexture(getDescaledX().toInt(), getDescaledY().toInt(), 0f, 0f, 64, 64, getDescaledH().toInt(), getDescaledH().toInt(), 64f, 64f)
 
