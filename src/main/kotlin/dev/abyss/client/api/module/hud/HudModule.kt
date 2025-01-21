@@ -24,6 +24,8 @@ abstract class HudModule : Module() {
 
     abstract fun getHeight(): Float
 
+    var scale: Float = 1f
+
     fun getDescaledX(): Float = getAbsoluteX() / Window(MinecraftClient.getInstance()).scaleFactor
 
     fun getDescaledY(): Float = getAbsoluteY() / Window(MinecraftClient.getInstance()).scaleFactor
@@ -37,7 +39,7 @@ abstract class HudModule : Module() {
         var msX = Mouse.getX()
         var msY = Display.getHeight() - Mouse.getY()
 
-        return (msX >= getAbsoluteX() && msX < getAbsoluteX() + getWidth()) && (msY >= getAbsoluteY() && msY < getAbsoluteY() + getHeight())
+        return (msX >= getAbsoluteX() && msX < getAbsoluteX() + (getWidth() * scale)) && (msY >= getAbsoluteY() && msY < getAbsoluteY() + (getHeight() * scale))
     }
 
     /**

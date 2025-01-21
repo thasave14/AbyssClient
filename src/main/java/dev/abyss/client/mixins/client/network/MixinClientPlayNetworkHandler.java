@@ -1,5 +1,6 @@
 package dev.abyss.client.mixins.client.network;
 
+import dev.abyss.client.event.impl.CombatEvent;
 import dev.abyss.client.utils.KDTracker;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
@@ -14,6 +15,8 @@ public class MixinClientPlayNetworkHandler {
 
     @Inject(method = "onCombatEvent", at = @At("HEAD"))
     private void onCombatEvent(CombatEventS2CPacket packet, CallbackInfo ci) {
+
+        new CombatEvent().call();
 
         if(packet.type == CombatEventS2CPacket.Type.ENTITY_DIED) {
             if(packet.attackerEntityId == MinecraftClient.getInstance().player.getEntityId()) {

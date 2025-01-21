@@ -27,6 +27,7 @@ class ModuleRegistry {
         modules.add(OldAnimationsModule())
         modules.add(KDModule())
         modules.add(ToggleSprintModule())
+        modules.add(ResourcePackModule())
     }
 
     fun getEnabledHudModules(): MutableList<HudModule> {

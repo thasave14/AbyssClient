@@ -24,11 +24,10 @@ repositories {
 tasks.shadowJar {
 
     dependencies {
-        include(dependency("io.github.humbleui:skija-windows-x64:0.116.2"))
-        include(dependency("io.github.humbleui:skija-linux-x64:0.116.2"))
+        include(dependency("io.github.humbleui:skija-windows-x64:0.116.3"))
+        include(dependency("io.github.humbleui:skija-linux-x64:0.116.3"))
         include(dependency("io.github.humbleui:types:0.1.1"))
-        include(dependency("io.github.humbleui:skija-shared:0.116.2"))
-        include(dependency("com.sun.jna:jna:3.0.9"))
+        include(dependency("io.github.humbleui:skija-shared:0.116.3"))
     }
 }
 
@@ -38,10 +37,8 @@ dependencies {
     "mappings" ("net.legacyfabric:yarn:${minecraft_version}+build.$yarn_build:v2")
     "modImplementation" ("net.fabricmc:fabric-loader:${loader_version}")
 
-    implementation("io.github.humbleui:skija-windows-x64:0.116.2")
-    implementation("io.github.humbleui:skija-linux-x64:0.116.2")
-
-    implementation("com.sun.jna:jna:3.0.9")
+    implementation("io.github.humbleui:skija-windows-x64:0.116.3")
+    implementation("io.github.humbleui:skija-linux-x64:0.116.3")
 
     implementation("co.gongzh.procbridge:procbridge:1.1.1")
 

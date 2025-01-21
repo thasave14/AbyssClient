@@ -11,6 +11,7 @@ import dev.abyss.client.api.screen.modmenu.comp.settings.impl.*
 import dev.abyss.client.api.screen.ui.component.UIComponent
 import dev.abyss.client.skia.font.Fonts
 import dev.abyss.client.utils.InputUtils
+import dev.abyss.client.utils.Scroll
 import dev.abyss.client.utils.animate.SimpleAnimation
 import net.minecraft.client.MinecraftClient
 import net.minecraft.client.gui.screen.Screen
@@ -192,8 +193,6 @@ class ModMenuScreen : Screen() {
 
                         if(currentPage == Page.MODULES) {
                             pageTitleAnimation.setAnimation(getX() + getSideBarWidth() + 40f, 12.0)
-                        } else {
-                            pageTitleAnimation.setAnimation(getX(), 12.0)
                         }
 
                         if(!modSettings) {

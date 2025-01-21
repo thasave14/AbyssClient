@@ -3,13 +3,18 @@ package dev.abyss.client.api.module.impl.hud
 import dev.abyss.client.api.module.MetaData
 import dev.abyss.client.api.module.Type
 import dev.abyss.client.api.module.hud.TextHudModule
+import dev.abyss.client.api.module.hud.TitleHudModule
 
 import net.minecraft.client.MinecraftClient
 
-class FpsModule : TextHudModule() {
+class FpsModule : TitleHudModule() {
 
-    override fun getText(): String {
-        return "FPS: ${MinecraftClient.getCurrentFps()}"
+    override fun getMainText(): String {
+        return "${MinecraftClient.getCurrentFps()}"
+    }
+
+    override fun getTitle(): String {
+        return "FPS"
     }
 
     override fun getMetaData(): MetaData {

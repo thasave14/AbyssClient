@@ -1,5 +1,6 @@
 package dev.abyss.client.api.module
 
+import com.google.gson.annotations.Expose
 import dev.abyss.client.Abyss
 import dev.abyss.client.api.module.settings.Setting
 import net.minecraft.client.MinecraftClient
@@ -15,6 +16,7 @@ abstract class Module : IMetaDataProvider {
 
     fun onToggle() {}
 
+    @Expose(serialize = false)
     val mc = MinecraftClient.getInstance()
 
     val settings = mutableListOf<Setting>()

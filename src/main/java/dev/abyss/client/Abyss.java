@@ -48,7 +48,6 @@ public class Abyss implements ModInitializer {
         this.settingsManager = new SettingsManager();
 
         Config.load();
-
         CosmeticManager.init();
 
         this.modMenuScreen = new ModMenuScreen();

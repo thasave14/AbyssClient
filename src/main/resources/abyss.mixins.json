@@ -4,6 +4,7 @@
   "package": "dev.abyss.client.mixins",
   "compatibilityLevel": "JAVA_11",
   "mixins": [
+    "world.MixinThreadedAnvilChunkStorage"
   ],
   "client": [
     "client.MixinMinecraftClient",
@@ -12,6 +13,7 @@
     "client.renderer.MixinCapeFeatureRenderer",
     "client.renderer.MixinEntityRenderer",
     "client.renderer.MixinHeldItemRenderer",
+    "client.renderer.texture.MixinSpriteAtlasTexture",
     "util.MixinKeyboardInput"
   ],
   "injectors": {

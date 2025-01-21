@@ -76,6 +76,12 @@ class ToggleSprintModule : HudModule() {
     private fun getText(): String {
 
         var displayText = ""
+
+        if(mc.player.abilities == null) {
+            displayText = ""
+            return displayText
+        }
+
         val isFlying = mc.player.abilities.flying
         val isSprintHeld = mc.options.sprintKey.isPressed
         val isSprinting = mc.player.isSprinting

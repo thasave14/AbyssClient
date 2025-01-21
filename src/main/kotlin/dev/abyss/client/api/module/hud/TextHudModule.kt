@@ -91,7 +91,12 @@ abstract class TextHudModule : HudModule() {
         skia.render {
 
             if(getSetting("Background").toggled) {
-                skia.drawRoundedRect(x, y, getWidth(), getHeight(), getSetting("Corner Radius").currentSlider, skia.paint(getSetting("Background Color").color))
+
+                if(getSetting("Corner Radius").currentSlider == 0f) {
+                    skia.drawRect(x, y, getWidth(), getHeight(), skia.paint(getSetting("Background Color").color))
+                } else {
+                    skia.drawRoundedRect(x, y, getWidth(), getHeight(), getSetting("Corner Radius").currentSlider, skia.paint(getSetting("Background Color").color))
+                }
             }
         }
 
