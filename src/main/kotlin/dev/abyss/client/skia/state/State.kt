@@ -9,9 +9,9 @@ import org.lwjgl.opengl.*
  *
  * This code is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
  * You are free to share and adapt this code, provided appropriate credit is given to the original author.
- * For more details, visit: <a href="https://creativecommons.org/licenses/by/4.0/deed.en">Creative Commons</a>
+ * For more details,
+ *  visit: <a href="https://creativecommons.org/licenses/by/4.0/deed.en">Creative Commons</a>
  */
-
 class State {
 
     private val pixelStores = HashMap<PixelStoreParameter, Int>()

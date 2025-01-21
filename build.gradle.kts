@@ -33,16 +33,16 @@ tasks.shadowJar {
 
 dependencies {
 
-    "minecraft" ("com.mojang:minecraft:${minecraft_version}")
-    "mappings" ("net.legacyfabric:yarn:${minecraft_version}+build.$yarn_build:v2")
-    "modImplementation" ("net.fabricmc:fabric-loader:${loader_version}")
+    "minecraft"("com.mojang:minecraft:${minecraft_version}")
+    "mappings"("net.legacyfabric:yarn:${minecraft_version}+build.$yarn_build:v2")
+    "modImplementation"("net.fabricmc:fabric-loader:${loader_version}")
 
     implementation("io.github.humbleui:skija-windows-x64:0.116.3")
     implementation("io.github.humbleui:skija-linux-x64:0.116.3")
 
     implementation("co.gongzh.procbridge:procbridge:1.1.1")
 
-    implementation ("com.google.code.gson:gson:2.8.9")
+    implementation("com.google.code.gson:gson:2.8.9")
 }
 
 tasks.processResources {

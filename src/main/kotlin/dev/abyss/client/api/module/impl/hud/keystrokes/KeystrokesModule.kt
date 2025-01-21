@@ -194,7 +194,7 @@ class KeystrokesModule : HudModule() {
         S.render(x + getWidth() / 2f - wasdBtnSize / 2f, y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.backKey, getSetting("Fade Amount").currentSlider.toDouble())
         D.render((x + getWidth() / 2f - wasdBtnSize / 2f) + (wasdBtnSize + 7), y + wasdBtnSize + 7, wasdBtnSize, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.rightKey, getSetting("Fade Amount").currentSlider.toDouble())
 
-        SPACE.render(x, y + ((wasdBtnSize * 2) + 14), getWidth() - 1, wasdBtnSize, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.jumpKey, getSetting("Fade Amount").currentSlider.toDouble())
+        SPACE.render(x, y + ((wasdBtnSize * 2) + 14), getWidth() - 1, wasdBtnSize / 2f, getSetting("Corner Radius").currentSlider, getSetting("Background").toggled, getSetting("Text Shadow").toggled, bgColor, bgColorPressed, textColor, textColorPressed, mc.options.jumpKey, getSetting("Fade Amount").currentSlider.toDouble())
     }
 
     override fun getWidth(): Float {

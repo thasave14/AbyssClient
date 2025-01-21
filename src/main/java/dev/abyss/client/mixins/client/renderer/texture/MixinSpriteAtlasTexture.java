@@ -10,6 +10,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Mixin(SpriteAtlasTexture.class)
 public class MixinSpriteAtlasTexture {
 
+    /**
+     * @author GlideClient
+     */
     @Inject(method = "load", at = @At("RETURN"))
     private void load(CallbackInfo ci) {
         new ChangePackEvent().call();
