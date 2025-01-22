@@ -16,8 +16,8 @@ import net.minecraft.client.MinecraftClient;
 import org.lwjgl.opengl.Display;
 
 /**
- * @author iLofiz
- * (i didn't bother to use lombok cuz this client is mainly built with kotlin)
+ * @author iLofiz & thasave14
+ * (i didn't bother to use lombok cuz this client is mainly built with kotlin (who decided it tho?))
  */
 public class Abyss implements ModInitializer {
 
@@ -79,9 +79,7 @@ public class Abyss implements ModInitializer {
 
     @Subscribe
     public void onKey(KeyEvent event) {
-
         if(event.getKey() == Abyss.getInstance().getSettingsManager().getSetting("Hud Editor Keybind").getKey()) {
-
             if(MinecraftClient.getInstance().currentScreen == null) {
                 MinecraftClient.getInstance().setScreen(new HudEditorScreen());
             }
