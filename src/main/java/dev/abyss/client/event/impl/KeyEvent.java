@@ -4,7 +4,7 @@ import dev.abyss.client.event.Event;
 
 public class KeyEvent extends Event {
 
-    private final int key;
+    public final int key;
 
     public KeyEvent(int key) {
         this.key = key;
