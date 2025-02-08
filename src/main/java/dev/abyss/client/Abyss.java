@@ -11,13 +11,15 @@ import dev.abyss.client.event.Subscribe;
 import dev.abyss.client.event.impl.KeyEvent;
 import dev.abyss.client.skia.Skia;
 import dev.abyss.client.skija.SkiaRenderer;
+
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.client.MinecraftClient;
+
 import org.lwjgl.opengl.Display;
 
 /**
  * @author iLofiz & thasave14
- * (i didn't bother to use lombok cuz this client is mainly built with kotlin (who decided it tho?))
+ * (i didn't bother to use lombok cuz this client is mainly built with kotlin (who decided it tho? iLofiz: tf has that got to do w this))
  */
 public class Abyss implements ModInitializer {
 
